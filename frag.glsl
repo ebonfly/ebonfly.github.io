@@ -17,7 +17,7 @@ uniform float u_time;
 
 void main() {
 
-    vec2 uv = gl_FragCoord.xy / u_resolution.xy;
+    vec2 uv = (gl_FragCoord.xy / u_resolution.xy) % 1.0;
 
     vec4 offsetMask = texture2D(u_tex0, uv + vec2(u_time*speed*2.0, u_time*speed*-0.05))*0.5
         + texture2D(u_tex0, uv + vec2(u_time*speed*4.15, u_time*speed*-0.025))*0.5;
